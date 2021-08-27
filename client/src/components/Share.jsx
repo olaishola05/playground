@@ -6,7 +6,38 @@ import useStyles from './ComponentsStyle'
 function Share() {
     const classes = useStyles()
     return (
-        <div className={share}>
+        <div className={classes.share}>
+            <div className={classes.shareWrapper}>
+                <div className={classes.shareTop}>
+                    <img src="./assets/img/gee.jpeg" alt="" className={classes.shareImg}/>
+                    <input placeholder='share your coding experience Ola' className={classes.shareInput} />
+                </div>
+                <hr className={classes.shareHr}/>
+                <div className={classes.shareBottom}>
+                    <div className={classes.shareOptions}>
+                        <div className={classes.shareOption}>
+                            <PermMedia htmlColor='tomato' className={classes.shareIcon}/>
+                            <span className={classes.shareOptionText}>Photo or Video</span>
+                        </div>
+
+                        <div className={classes.shareOption}>
+                            <Label htmlColor='blue' className={classes.shareIcon}/>
+                            <span className={classes.shareOptionText}>Tags</span>
+                        </div>
+
+                        <div className={classes.shareOption}>
+                            <Room htmlColor='green' className={classes.shareIcon}/>
+                            <span className={classes.shareOptionText}>Location</span>
+                        </div>
+
+                        <div className={classes.shareOption}>
+                            <EmojiEmotions htmlColor='goldenrod' className={classes.shareIcon}/>
+                            <span className={classes.shareOptionText}>Feelings</span>
+                        </div>
+                    </div>
+                    <button className={classes.shareBtn}>Share</button>
+                </div>
+            </div>
             
         </div>
     )
