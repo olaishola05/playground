@@ -269,13 +269,62 @@ const useStyles = makeStyles((theme) => ({
     // RightBar 
     rightbar: {
         flex: 3.5,
-        margin: '1px solid red',
-        backgroundColor: 'maroon'
     },
 
     rightbarWrapper:{
         padding: '20px 20px 0 0'
     },
+
+    rightbarAd:{
+        width: '100%',
+        borderRadius: '10px',
+        margin: '30px 0'
+    },
+
+    rightbarTitle:{
+        marginBottom: '20px'
+    },
+
+    rightbarFriendList:{
+        padding: 0,
+        margin: 0,
+        listStyle: 'none'
+    },
+
+    rightbarFriend:{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '15px'
+    },
+
+    rightbarProfileImgContainer:{
+        marginRight: '10px',
+        position: 'relative'
+    },
+
+    rightProfileImg:{
+        width: '40px',
+        height: '40px',
+        borderRadius: '50%',
+        objectFit: 'cover'
+    },
+
+    rightbarOnline:{
+        width: '12px',
+        height: '12px',
+        borderRadius: '50%',
+        backgroundColor: 'limegreen',
+        position: 'absolute',
+        top: '-2px',
+        right: 0,
+        border: '2px solid white'
+    },
+
+    rightbarUsername:{
+        fontWeight: 500
+    }
+
+
 }))
 
 export default useStyles
