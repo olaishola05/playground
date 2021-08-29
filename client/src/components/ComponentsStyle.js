@@ -322,8 +322,102 @@ const useStyles = makeStyles((theme) => ({
 
     rightbarUsername:{
         fontWeight: 500
-    }
+    },
 
+    // Post
+    post:{
+        width:'100%',
+        borderRadius: '10px',
+        webkitBoxShadow: '0px 0px 16px -8px rgba(0, 0, 0, 0.68)',
+        boxShadow: '0px 0px 16px -8px rgba(0, 0, 0, 0.68)',
+        marginTop: '20px'
+    },
+    
+    postWrapper:{
+        padding: '10px'
+    },
+
+    postContainer:{
+        width: '100%',
+    },
+
+    postImageContainer:{
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+
+    postTop:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    userImg:{
+        width: '32px',
+        height: '32px',
+        borderRadius: '50%',
+        objectFit: 'cover',
+        cursor: 'pointer'
+    },
+
+    PostName:{
+        fontSize: '15px',
+        margin: '0 10px'
+    },
+
+    PostDate:{
+        fontSize: '12px'
+    },
+
+    postMoreIcon:{
+        cursor: 'pointer'
+    },
+
+    postCenter:{
+        margin: '20px 0'
+    },
+
+    postText: {
+        fontSize: '15px',
+    },
+
+    postImg:{
+        width: '100%',
+        marginTop: '10px',
+        maxHeight: '500px',
+        objectFit: 'contain'
+    },
+
+    postBottom: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+
+    postLike:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    postLikes:{
+        fontSize: '15px'
+    },
+
+    postLikeIcons:{
+        width: '22px',
+        height: '22px',
+        marginRight: '5px',
+        borderRadius: '50%',
+        objectFit: 'cover',
+        cursor: 'pointer'
+    },
+
+    postComments:{
+        fontSize: '14px',
+        borderBottom: '0.1px dashed gray',
+        cursor: 'cursor'
+    }
 
 }))
 
