@@ -30,11 +30,14 @@ function Profile() {
 
             <div className={classes.profileInfo}>
               <h4 className={classes.profileInfoName}>Ola Ishola</h4>
+              {/* <ul>
+                <li>JavaScript</li>
+              </ul> */}
             </div>
           </div>
           <div className={classes.profileRightBottom}>
             <Feed />
-            <RightBar />
+            <RightBar profile />
           </div>
         </div>
       </div>

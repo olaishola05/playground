@@ -1,29 +1,29 @@
 import React from "react";
 import useStyles from "./ComponentsStyle";
 import { MoreVert } from "@material-ui/icons";
+import { Users } from "../utils/mockData";
 
 function Post({ post }) {
   const { desc, photo, date, like, comment } = post;
   const classes = useStyles();
+  const username = Users.filter((user) => user.id === post?.userId)[0].username;
+  const picture = Users.filter((user) => user.id === post?.userId)[0]
+    .profilePicture;
+
   return (
     <div className={classes.post}>
       <div className={classes.postWrapper}>
         <div className={classes.postContainer}>
           <div className={classes.postImageContainer}>
             <div className={classes.postTop}>
-              <img
-                src="./assets/img/gee.jpeg"
-                alt=""
-                className={classes.userImg}
-              />
-              <span className={classes.PostName}>Ola Ishola</span>
+              <img src={picture} alt="" className={classes.userImg} />
+              <span className={classes.PostName}>{username}</span>
               <span className={classes.PostDate}>{date}</span>
             </div>
             <div className="postTopRight">
               <MoreVert className={classes.postMoreIcon} />
             </div>
           </div>
-
           <div className={classes.postCenter}>
             <span className={classes.postText}>{desc}</span>
             <img src={photo} alt="" className={classes.postImg} />

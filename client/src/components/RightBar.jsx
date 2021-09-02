@@ -4,11 +4,11 @@ import { Users } from "../utils/mockData";
 import OnlineFriends from "./OnlineFriends";
 import AdsFeeds from "./AdsFeeds";
 
-function RightBar() {
+function RightBar({ profile }) {
   const classes = useStyles();
-  return (
-    <div className={classes.rightbar}>
-      <div className={classes.rightbarWrapper}>
+  const AreOnline = () => {
+    return (
+      <>
         <AdsFeeds />
         <h4 className={classes.rightbarTitle}>Online Friends</h4>
         <ul className={classes.rightbarFriendList}>
@@ -16,6 +16,13 @@ function RightBar() {
             <OnlineFriends key={user.id} user={user} />
           ))}
         </ul>
+      </>
+    );
+  };
+  return (
+    <div className={classes.rightbar}>
+      <div className={classes.rightbarWrapper}>
+        {profile ? "here is the place" : <AreOnline />}
       </div>
     </div>
   );
