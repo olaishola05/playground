@@ -458,12 +458,78 @@ const useStyles = makeStyles((theme) => ({
   },
 
   profileInfoDesc: {
-    fontSize: "16px",
-    fontWeight: "normal",
+    fontSize: "15px",
+    fontWeight: "500",
+    textAlign: "justify",
+    width: "50%",
   },
 
   profileRightBottom: {
     display: "flex",
+  },
+
+  ProfileRightTitle: {
+    fontSize: "18px",
+    marginBottom: "10px",
+    fontWeight: "700",
+  },
+
+  profileRighbartInfo: {
+    marginBottom: "10px",
+  },
+  profileRigthbarInfoItem: {
+    marginBottom: "10px",
+  },
+  profilerightbarInfoKey: {
+    fontWeight: 700,
+    marginRight: "15px",
+    color: "#555",
+  },
+
+  profilerightbarInfoValue: {
+    fontWeight: 300,
+  },
+
+  profileRightBottoms: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  stackTitle: {
+    fontSize: "18px",
+    marginTop: "15px",
+    marginBottom: "10px",
+    fontWeight: "700",
+  },
+  profileStacks: {
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    gap: "5px",
+    marginBottom: "15px",
+  },
+
+  stacksItem: {
+    fontSize: "15px",
+    fontWeight: "bold",
+  },
+
+  rigthbarFollowings: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  rightbarFollowing: {
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "20px",
+    cursor: "pointer",
+  },
+
+  rightbarFollwingImg: {
+    width: "100px",
+    height: "100px",
+    borderRadius: "5px",
+    objectFit: "cover",
+    marginBottom: "10px",
   },
 }));
 

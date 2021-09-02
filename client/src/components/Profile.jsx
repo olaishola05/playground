@@ -30,9 +30,11 @@ function Profile() {
 
             <div className={classes.profileInfo}>
               <h4 className={classes.profileInfoName}>Ola Ishola</h4>
-              {/* <ul>
-                <li>JavaScript</li>
-              </ul> */}
+              <span className={classes.profileInfoDesc}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                nobis iusto accusantium aliquam tempore voluptatum vel minima
+                dolor eius cupiditate.
+              </span>
             </div>
           </div>
           <div className={classes.profileRightBottom}>
