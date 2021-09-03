@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: '#FFFFFF'
+    /* // backgroundColor: '#FFFFFF' */
   },
 
   homeContainer: {
@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundColor: "#FFFFFF",
   },
-  // Topbar
+
+  /* Topbar */
   topbarContainer: {
     height: "50px",
     width: "100%",
@@ -108,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "30px",
   },
 
-  // LeftBar component
+  /* LeftBar component */
   leftbar: {
     flex: 3,
     height: "calc(100vh - 50px)",
@@ -175,7 +176,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "10px",
   },
 
-  // Feed
+  /* Feed */
   feed: {
     flex: 5.5,
   },
@@ -184,7 +185,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px",
   },
 
-  // Share
+  /* Share */
   share: {
     width: "100%",
     height: "170px",
@@ -262,7 +263,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 
-  // RightBar
+  /* RightBar */
+
   rightbar: {
     flex: 3.5,
   },
@@ -320,7 +322,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
   },
 
-  // Post
+  /* Post */
   post: {
     width: "100%",
     borderRadius: "10px",
@@ -421,7 +423,7 @@ const useStyles = makeStyles((theme) => ({
 
   ProfileRight: {
     flex: 9,
-    // padding: "10px",
+    /* padding: "10px", */
   },
 
   profileCover: {
@@ -510,6 +512,12 @@ const useStyles = makeStyles((theme) => ({
   stacksItem: {
     fontSize: "15px",
     fontWeight: "bold",
+    width: "80px",
+    backgroundColor: "#7869EB",
+    textAlign: "center",
+    color: "white",
+    padding: "2px",
+    borderRadius: "5px",
   },
 
   rigthbarFollowings: {
@@ -525,9 +533,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   rightbarFollwingImg: {
-    width: "100px",
-    height: "100px",
-    borderRadius: "5px",
+    width: "80px",
+    height: "80px",
+    borderRadius: "50%",
     objectFit: "cover",
     marginBottom: "10px",
   },

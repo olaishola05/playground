@@ -54,6 +54,7 @@ function RightBar({ profile }) {
             </div>
           </div>
         </div>
+        <hr className={classes.leftbarHr} />
 
         <div className={classes.profileRightBottoms}>
           <h4 className={classes.stackTitle}>Tech Stacks</h4>
@@ -68,6 +69,8 @@ function RightBar({ profile }) {
             <span className={classes.stacksItem}>HTML5</span>
           </div>
         </div>
+
+        <hr className={classes.leftbarHr} />
 
         <div>
           <h4 className={classes.stackTitle}>User Friends</h4>
@@ -149,6 +152,7 @@ function RightBar({ profile }) {
         {profile ? (
           <div>
             <ProfileRight />
+            <hr className={classes.leftbarHr} />
             <AdsFeeds />
           </div>
         ) : (
