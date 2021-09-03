@@ -539,6 +539,96 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
     marginBottom: "10px",
   },
+
+  /* Login */
+  login: {
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f0f2f5",
+  },
+
+  loginWrapper: {
+    width: "70%",
+    height: "70%",
+    display: "flex",
+  },
+  loginLeft: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+
+  loginRight: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  loginLogo: {
+    fontSize: "50px",
+    fontWeight: 800,
+    color: "#7869EB",
+    marginBottom: "10px",
+  },
+  loginDesc: {
+    fontSize: "20px",
+  },
+  loginBox: {
+    height: "300px",
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: "10px",
+    backgroundColor: "white",
+    justifyContent: "space-between",
+    webkitBoxShadow: "0px 0px 16px -8px rgba(0, 0, 0, 0.68)",
+    boxShadow: "0px 0px 16px -8px rgba(0, 0, 0, 0.68)",
+  },
+
+  loginInput: {
+    height: "50px",
+    borderRadius: "10px",
+    border: "1px solid gray",
+    fontSize: "18px",
+    paddingLeft: "20px",
+
+    "&:focus": {
+      outline: "none",
+    },
+  },
+
+  loginBtn: {
+    height: "50px",
+    borderRadius: "10px",
+    border: "none",
+    backgroundColor: "#7869EB",
+    color: "white",
+    fontSize: "20px",
+    fontWeight: 500,
+    cursor: "pointer",
+  },
+
+  loginForgot: {
+    textAlign: "center",
+    color: "#1775ee",
+  },
+
+  loginRegistration: {
+    width: "50%",
+    height: "50px",
+    alignSelf: "center",
+    borderRadius: "10px",
+    border: "none",
+    backgroundColor: "#42b72a",
+    color: "white",
+    fontSize: "20px",
+    fontWeight: 500,
+    cursor: "pointer",
+  },
 }));
 
 export default useStyles;
