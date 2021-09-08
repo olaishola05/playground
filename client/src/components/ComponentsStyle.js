@@ -560,6 +560,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    marginRight: "3px",
   },
 
   loginRight: {

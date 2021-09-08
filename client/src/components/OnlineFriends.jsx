@@ -2,6 +2,7 @@ import React from "react";
 import useStyles from "./ComponentsStyle";
 
 function OnlineFriends({ user }) {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const classes = useStyles();
 
   const Friends = () => {
@@ -9,7 +10,7 @@ function OnlineFriends({ user }) {
       <li className={classes.rightbarFriend}>
         <div className={classes.rightbarProfileImgContainer}>
           <img
-            src={user.profilePicture}
+            src={PF + user.profilePicture}
             alt=""
             className={classes.rightProfileImg}
           />

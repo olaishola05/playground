@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./ComponentsStyle";
 import { MoreVert } from "@material-ui/icons";
-import { Users } from "../utils/mockData";
+// import axios from "axios";
+import { format } from "timeago.js";
+// import { Users } from "../utils/mockData";
 
-function Post({ post }) {
-  const { desc, photo, date, like, comment } = post;
+function Post({ post, user }) {
+  const [like, setLike] = useState(post.likes.length);
+  const [isLiked, setIsLiked] = useState(false);
+  // const [user, setUser] = useState({});
+
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
+  };
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     const res = await axios.get(`users/${post.userId}`);
+  //     console.log(res.data);
+  //     setUser(res.data);
+  //   };
+  //   fetchUser();
+  // }, [post.userId]);
+
   const classes = useStyles();
-  const username = Users.filter((user) => user.id === post?.userId)[0].username;
-  const picture = Users.filter((user) => user.id === post?.userId)[0]
-    .profilePicture;
 
   return (
     <div className={classes.post}>
@@ -16,30 +33,44 @@ function Post({ post }) {
         <div className={classes.postContainer}>
           <div className={classes.postImageContainer}>
             <div className={classes.postTop}>
-              <img src={picture} alt="" className={classes.userImg} />
-              <span className={classes.PostName}>{username}</span>
-              <span className={classes.PostDate}>{date}</span>
+              <img
+                src={
+                  user.profilePicture
+                    ? user.profilePicture
+                    : PF + "img/noAvatar.jpg"
+                }
+                alt=""
+                className={classes.userImg}
+              />
+              <span className={classes.PostName}>{user.username}</span>
+              <span className={classes.PostDate}>{format(post.createdAt)}</span>
             </div>
             <div className="postTopRight">
               <MoreVert className={classes.postMoreIcon} />
             </div>
           </div>
           <div className={classes.postCenter}>
-            <span className={classes.postText}>{desc}</span>
-            <img src={photo} alt="" className={classes.postImg} />
+            <span className={classes.postText}>{post?.desc}</span>
+            <img
+              src={post.img ? post.img : null}
+              alt=""
+              className={classes.postImg}
+            />
           </div>
 
           <div className={classes.postBottom}>
             <div className={classes.postLike}>
               <img
-                src="./assets/img/heart.png"
+                src={`${PF}img/heart.png`}
                 alt=""
                 className={classes.postLikeIcons}
+                onClick={likeHandler}
               />
               <img
-                src="./assets/img/like.png"
+                src={`${PF}img/like.png`}
                 alt=""
                 className={classes.postLikeIcons}
+                onClick={likeHandler}
               />
               <span className={classes.postLikes}>
                 {like} people liked this posts
@@ -47,7 +78,9 @@ function Post({ post }) {
             </div>
 
             <div className={classes.postComment}>
-              <span className={classes.postComments}>{comment} comments</span>
+              <span className={classes.postComments}>
+                {post.comment} comments
+              </span>
             </div>
           </div>
         </div>

@@ -3,12 +3,14 @@ import useStyles from "./ComponentsStyle";
 
 function FriendsFollowing({ user }) {
   const classes = useStyles();
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   const FrienList = () => {
     return (
       <>
         <li className={classes.leftbarFriend}>
           <img
-            src={user.profilePicture}
+            src={PF + user.profilePicture}
             alt=""
             className={classes.leftbarFriendImg}
           />
