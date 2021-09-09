@@ -1,29 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useStyles from "./ComponentsStyle";
 import { MoreVert } from "@material-ui/icons";
 // import axios from "axios";
 import { format } from "timeago.js";
-// import { Users } from "../utils/mockData";
+import { Link } from "react-router-dom";
+// import axios from "axios";
 
 function Post({ post, user }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
-  // const [user, setUser] = useState({});
 
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const res = await axios.get(`users/${post.userId}`);
-  //     console.log(res.data);
-  //     setUser(res.data);
-  //   };
-  //   fetchUser();
-  // }, [post.userId]);
 
   const classes = useStyles();
 
@@ -33,15 +24,17 @@ function Post({ post, user }) {
         <div className={classes.postContainer}>
           <div className={classes.postImageContainer}>
             <div className={classes.postTop}>
-              <img
-                src={
-                  user.profilePicture
-                    ? user.profilePicture
-                    : PF + "img/noAvatar.jpg"
-                }
-                alt=""
-                className={classes.userImg}
-              />
+              <Link to={`profile/${user.username}`}>
+                <img
+                  src={
+                    user.profilePicture
+                      ? user.profilePicture
+                      : PF + "img/noAvatar.jpg"
+                  }
+                  alt=""
+                  className={classes.userImg}
+                />
+              </Link>
               <span className={classes.PostName}>{user.username}</span>
               <span className={classes.PostDate}>{format(post.createdAt)}</span>
             </div>
@@ -52,7 +45,7 @@ function Post({ post, user }) {
           <div className={classes.postCenter}>
             <span className={classes.postText}>{post?.desc}</span>
             <img
-              src={post.img ? post.img : null}
+              src={post.img && post.img}
               alt=""
               className={classes.postImg}
             />

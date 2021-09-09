@@ -4,8 +4,10 @@ import { Users } from "../utils/mockData";
 import OnlineFriends from "./OnlineFriends";
 import AdsFeeds from "./AdsFeeds";
 
-function RightBar({ profile }) {
+function RightBar({ user }) {
+  console.log(user);
   const classes = useStyles();
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   // online friends with ads
   const HomeRightBar = () => {
@@ -30,7 +32,9 @@ function RightBar({ profile }) {
           <div className={classes.profileRighbartInfo}>
             <div className={classes.profileRigthbarInfoItem}>
               <span className={classes.profilerightbarInfoKey}>City:</span>
-              <span className={classes.profilerightbarInfoValue}>Toronto</span>
+              <span className={classes.profilerightbarInfoValue}>
+                {user.city}
+              </span>
             </div>
           </div>
 
@@ -38,7 +42,7 @@ function RightBar({ profile }) {
             <div className={classes.profileRigthbarInfoItem}>
               <span className={classes.profilerightbarInfoKey}>From:</span>
               <span className={classes.profilerightbarInfoValue}>
-                British Island
+                {user.from}
               </span>
             </div>
           </div>
@@ -49,7 +53,7 @@ function RightBar({ profile }) {
                 Experience:
               </span>
               <span className={classes.profilerightbarInfoValue}>
-                Mid-Level
+                {user.level ? user.level : "Beginner"}
               </span>
             </div>
           </div>
@@ -77,7 +81,7 @@ function RightBar({ profile }) {
           <div className={classes.rigthbarFollowings}>
             <div className={classes.rightbarFollowing}>
               <img
-                src="./assets/img/smile.jpeg"
+                src={PF + "img/smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -88,7 +92,7 @@ function RightBar({ profile }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src="./assets/img/smile.jpeg"
+                src={PF + "img/smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -99,7 +103,7 @@ function RightBar({ profile }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src="./assets/img/smile.jpeg"
+                src={PF + "img/smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -110,7 +114,7 @@ function RightBar({ profile }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src="./assets/img/smile.jpeg"
+                src={PF + "img/smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -121,7 +125,7 @@ function RightBar({ profile }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src="./assets/img/smile.jpeg"
+                src={PF + "img/smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -132,7 +136,7 @@ function RightBar({ profile }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src="./assets/img/smile.jpeg"
+                src={PF + "img/smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -149,7 +153,7 @@ function RightBar({ profile }) {
   return (
     <div className={classes.rightbar}>
       <div className={classes.rightbarWrapper}>
-        {profile ? (
+        {user ? (
           <div>
             <ProfileRight />
             <hr className={classes.leftbarHr} />
