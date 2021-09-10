@@ -50,10 +50,10 @@ function RightBar({ user }) {
           <div className={classes.profileRighbartInfo}>
             <div className={classes.profileRigthbarInfoItem}>
               <span className={classes.profilerightbarInfoKey}>
-                Experience:
+                Experience Level:
               </span>
               <span className={classes.profilerightbarInfoValue}>
-                {user.level ? user.level : "Beginner"}
+                {user.experience ? user.experience : "Preferred not to say"}
               </span>
             </div>
           </div>
@@ -62,16 +62,13 @@ function RightBar({ user }) {
 
         <div className={classes.profileRightBottoms}>
           <h4 className={classes.stackTitle}>Tech Stacks</h4>
-          <div className={classes.profileStacks}>
-            <span className={classes.stacksItem}>JavaScript</span>
-            <span className={classes.stacksItem}>ReactJS</span>
-            <span className={classes.stacksItem}>NodeJS</span>
-            <span className={classes.stacksItem}>MongoDB</span>
-            <span className={classes.stacksItem}>Material UI</span>
-            <span className={classes.stacksItem}>Bootstrap</span>
-            <span className={classes.stacksItem}>CSS3</span>
-            <span className={classes.stacksItem}>HTML5</span>
-          </div>
+          {user.stacks.map((stack) => (
+            <>
+              <div className={classes.profileStacks} key={stack}>
+                <span className={classes.stacksItem}>{stack}</span>
+              </div>
+            </>
+          ))}
         </div>
 
         <hr className={classes.leftbarHr} />

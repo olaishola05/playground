@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import useStyles from "./ComponentsStyle";
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
-function TopBar({ user }) {
-  console.log(user);
+function TopBar() {
+  const { user } = useContext(AuthContext);
   const classes = useStyles();
+
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className={classes.topbarContainer}>
       <div className={classes.topbarLeft}>
@@ -51,7 +55,11 @@ function TopBar({ user }) {
           </div>
         </div>
       </div>
-      <img src="./assets/img/gee.jpeg" alt="" className={classes.topbarImg} />
+      <img
+        src={user ? user.profilePicture : PF + "img/noAvatar.jpg"}
+        alt=""
+        className={classes.topbarImg}
+      />
     </div>
   );
 }

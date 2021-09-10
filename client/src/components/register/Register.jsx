@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import useStyles from "../ComponentsStyle";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 function Register() {
+  const username = useRef();
+  const email = useRef();
+  const password = useRef();
+  const confirmPassword = useRef();
   const classes = useStyles();
+  const history = useHistory();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (confirmPassword.current.value !== password.current.value) {
+      confirmPassword.current.setCustomValidity("Password don't match");
+    } else {
+      const user = {
+        username: username.current.value,
+        email: email.current.value,
+        password: password.current.value,
+      };
+
+      try {
+        await axios.post("/auth/register", user);
+        history.push("/login");
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
   return (
     <div className={classes.login}>
       <div className={classes.loginWrapper}>
@@ -14,22 +41,47 @@ function Register() {
         </div>
 
         <div className={classes.loginRight}>
-          <div className={classes.loginBox}>
-            <input placeholder="Email" className={classes.loginInput} />
-
-            <input placeholder="Password" className={classes.loginInput} />
+          <form className={classes.loginBox} onSubmit={handleSubmit}>
             <input
-              placeholder="Confirm Password"
+              type="text"
+              required
+              placeholder="Username"
               className={classes.loginInput}
+              ref={username}
+            />
+            <input
+              type="email"
+              required
+              placeholder="Email"
+              className={classes.loginInput}
+              ref={email}
             />
 
-            <button className={classes.loginBtn}>Sign Up</button>
-            {/* <span className={classes.loginForgot}>Forgot Password?</span> */}
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              minLength="6"
+              className={classes.loginInput}
+              ref={confirmPassword}
+            />
+            <input
+              type="password"
+              required
+              minLength="6"
+              placeholder="Confirm Password"
+              className={classes.loginInput}
+              ref={password}
+            />
 
-            {/* <button className={classes.loginRegistration}>
-              Create a New Account
-            </button> */}
-          </div>
+            <button className={classes.loginBtn} type="submit">
+              Sign Up
+            </button>
+
+            <button className={classes.loginRegistration}>
+              Login into Account
+            </button>
+          </form>
         </div>
       </div>
     </div>

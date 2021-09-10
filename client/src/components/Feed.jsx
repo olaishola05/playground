@@ -1,32 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useStyles from "./ComponentsStyle";
 import Post from "./Post";
 import Share from "./Share";
 import axios from "axios";
-
-function Feed({ username }) {
+import { AuthContext } from "../context/AuthContext";
+function Feed() {
   const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   // const username = useParams().username
-  console.log(username);
+  const { user } = useContext(AuthContext);
+  const { username, _id } = user;
 
   useEffect(() => {
     const getPosts = async () => {
       const res = username
         ? await axios.get("/posts/profile/" + username)
-        : await axios.get("posts/timeline/61275d4bfc8dcc18388d34ae");
+        : await axios.get("posts/timeline/" + _id);
       setPosts(res.data);
     };
     getPosts();
-  }, [username]);
+  }, [_id, username]);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(`/users?username=olaish`);
-      setUser(res.data);
-    };
-    fetchUser();
-  }, [username]);
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     const res = await axios.get(`/users?username=olaish`);
+  //     setUser(res.data);
+  //   };
+  //   fetchUser();
+  // }, [username]);
 
   const classes = useStyles();
 

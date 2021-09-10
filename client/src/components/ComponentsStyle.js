@@ -463,7 +463,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15px",
     fontWeight: "500",
     textAlign: "justify",
-    width: "50%",
+    // width: "50%",
+    marginBottom: "10px",
   },
 
   profileRightBottom: {
@@ -507,19 +508,21 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: "repeat(4, 1fr)",
     gap: "5px",
     marginBottom: "15px",
+    border: "1px solid red",
   },
 
   stacksItem: {
     fontSize: "15px",
     fontWeight: "bold",
-    width: "80px",
+    width: "95px",
     backgroundColor: "#7869EB",
     textAlign: "center",
     color: "white",
     padding: "2px",
-    borderRadius: "5px",
+    borderRadius: "1px",
   },
 
+  // friends following
   rigthbarFollowings: {
     display: "flex",
     flexWrap: "wrap",
@@ -579,7 +582,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
   },
   loginBox: {
-    height: "300px",
+    height: "400px",
     padding: "20px",
     display: "flex",
     flexDirection: "column",
@@ -611,6 +614,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     fontWeight: 500,
     cursor: "pointer",
+    "&:focus": {
+      outline: "none",
+    },
+    "&:disabled": {
+      cursor: "not-allowed",
+    },
   },
 
   loginForgot: {
@@ -619,7 +628,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   loginRegistration: {
-    width: "50%",
+    // width: "60%",
     height: "50px",
     alignSelf: "center",
     borderRadius: "10px",

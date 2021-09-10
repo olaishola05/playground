@@ -2,6 +2,7 @@ import React, { useContext, useRef } from "react";
 import useStyles from "../ComponentsStyle";
 import { loginCall } from "../../ApiCalls";
 import { AuthContext } from "../../context/AuthContext";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Login() {
   const classes = useStyles();
@@ -11,12 +12,15 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // loginCall(
-    //   { email: email.current.value, password: password.current.value },
-    //   dispatch
-    // );
+    loginCall(
+      {
+        email: email.current.value,
+        password: password.current.value,
+      },
+      dispatch
+    );
   };
-  // console.log(user);
+  console.log(user);
   return (
     <div className={classes.login}>
       <div className={classes.loginWrapper}>
@@ -46,7 +50,13 @@ function Login() {
               className={classes.loginInput}
             />
 
-            <button className={classes.loginBtn}>Log In</button>
+            <button className={classes.loginBtn} disabled={isFetching}>
+              {isFetching ? (
+                <CircularProgress color="inherit" size="20px" />
+              ) : (
+                "Log In"
+              )}
+            </button>
             <span className={classes.loginForgot}>Forgot Password?</span>
 
             <button className={classes.loginRegistration}>
