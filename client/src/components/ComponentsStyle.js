@@ -419,6 +419,8 @@ const useStyles = makeStyles((theme) => ({
 
   profile: {
     display: "flex",
+    height: "calc(100vh - 50px)",
+    overflowY: "scroll",
   },
 
   ProfileRight: {
@@ -506,20 +508,26 @@ const useStyles = makeStyles((theme) => ({
   profileStacks: {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "5px",
+    gap: "2px",
     marginBottom: "15px",
-    border: "1px solid red",
+    // padding: "5px",
   },
 
   stacksItem: {
     fontSize: "15px",
     fontWeight: "bold",
-    width: "95px",
+    width: "90px",
+    height: "20px",
     backgroundColor: "#7869EB",
     textAlign: "center",
     color: "white",
-    padding: "2px",
     borderRadius: "1px",
+
+    "&:hover": {
+      color: "#7869EB",
+      backgroundColor: "white",
+      cursor: "pointer",
+    },
   },
 
   // friends following

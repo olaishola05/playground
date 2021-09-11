@@ -14,7 +14,7 @@ function Share({ user }) {
           <img
             src={
               user.profilePicture
-                ? user.profilePicture
+                ? PF + user.profilePicture
                 : PF + "img/noAvatar.jpg"
             }
             alt=""

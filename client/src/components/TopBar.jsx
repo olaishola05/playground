@@ -22,7 +22,7 @@ function TopBar() {
         <div className={classes.searchBar}>
           <Search className={classes.searchIcon} />
           <input
-            placeholder="search fro friends, posts or videos"
+            placeholder="search for friends, posts or videos"
             className={classes.searchInput}
           />
         </div>
@@ -55,11 +55,17 @@ function TopBar() {
           </div>
         </div>
       </div>
-      <img
-        src={user ? user.profilePicture : PF + "img/noAvatar.jpg"}
-        alt=""
-        className={classes.topbarImg}
-      />
+      <Link to={`/profile/${user.username}`}>
+        <img
+          src={
+            user.profilePicture
+              ? PF + user.profilePicture
+              : PF + "img/noAvatar.jpg"
+          }
+          alt=""
+          className={classes.topbarImg}
+        />
+      </Link>
     </div>
   );
 }

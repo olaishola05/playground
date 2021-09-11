@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import useStyles from "./ComponentsStyle";
 import { Users } from "../utils/mockData";
 import OnlineFriends from "./OnlineFriends";
 import AdsFeeds from "./AdsFeeds";
+import { AuthContext } from "../context/AuthContext";
 
-function RightBar({ user }) {
-  console.log(user);
+function RightBar({ users }) {
   const classes = useStyles();
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user } = useContext(AuthContext);
 
   // online friends with ads
   const HomeRightBar = () => {
@@ -62,13 +63,13 @@ function RightBar({ user }) {
 
         <div className={classes.profileRightBottoms}>
           <h4 className={classes.stackTitle}>Tech Stacks</h4>
-          {user.stacks.map((stack) => (
-            <>
-              <div className={classes.profileStacks} key={stack}>
-                <span className={classes.stacksItem}>{stack}</span>
+          <div className={classes.profileStacks}>
+            {user.stacks.map((stack) => (
+              <div key={stack} className={classes.stacksItem}>
+                <span>{stack}</span>
               </div>
-            </>
-          ))}
+            ))}
+          </div>
         </div>
 
         <hr className={classes.leftbarHr} />
@@ -105,7 +106,7 @@ function RightBar({ user }) {
                 className={classes.rightbarFollwingImg}
               />
               <span className={classes.rightbarfollowingName}>
-                Jeremy Clarkes
+                Jerry Clarkes
               </span>
             </div>
 
@@ -150,7 +151,7 @@ function RightBar({ user }) {
   return (
     <div className={classes.rightbar}>
       <div className={classes.rightbarWrapper}>
-        {user ? (
+        {users ? (
           <div>
             <ProfileRight />
             <hr className={classes.leftbarHr} />

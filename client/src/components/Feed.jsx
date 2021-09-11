@@ -4,30 +4,20 @@ import Post from "./Post";
 import Share from "./Share";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-function Feed() {
+
+function Feed({ username }) {
   const [posts, setPosts] = useState([]);
-  // const [user, setUser] = useState({});
-  // const username = useParams().username
   const { user } = useContext(AuthContext);
-  const { username, _id } = user;
 
   useEffect(() => {
     const getPosts = async () => {
       const res = username
         ? await axios.get("/posts/profile/" + username)
-        : await axios.get("posts/timeline/" + _id);
+        : await axios.get("posts/timeline/" + user._id);
       setPosts(res.data);
     };
     getPosts();
-  }, [_id, username]);
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const res = await axios.get(`/users?username=olaish`);
-  //     setUser(res.data);
-  //   };
-  //   fetchUser();
-  // }, [username]);
+  }, [user._id, username]);
 
   const classes = useStyles();
 
@@ -36,7 +26,7 @@ function Feed() {
       <div className={classes.feedWrapper}>
         <Share user={user} />
         {posts.map((post) => (
-          <Post key={post._id} post={post} user={user} />
+          <Post key={post._id} post={post} />
         ))}
       </div>
     </div>

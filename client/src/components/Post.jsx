@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import useStyles from "./ComponentsStyle";
 import { MoreVert } from "@material-ui/icons";
-// import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+// import { AuthContext } from "../context/AuthContext";
+import axios from "axios";
 
-function Post({ post, user }) {
+function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
+  const [user, setUser] = useState({});
+  // const { user } = useContext(AuthContext);
 
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
@@ -17,6 +19,14 @@ function Post({ post, user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const classes = useStyles();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`/users?userId=${post.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [post.userId]);
 
   return (
     <div className={classes.post}>
@@ -28,7 +38,7 @@ function Post({ post, user }) {
                 <img
                   src={
                     user.profilePicture
-                      ? user.profilePicture
+                      ? PF + user.profilePicture
                       : PF + "img/noAvatar.jpg"
                   }
                   alt=""
