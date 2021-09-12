@@ -32,7 +32,7 @@ function Profile() {
                 src={
                   user.coverPicture
                     ? user.coverPicture
-                    : PF + "img/coverPicture.jpeg"
+                    : PF + "coverPicture.jpeg"
                 }
                 alt=""
                 className={classes.profileCoverImg}
@@ -42,7 +42,7 @@ function Profile() {
                 src={
                   user.profilePicture
                     ? user.profilePicture
-                    : PF + "img/noAvatar.jpg"
+                    : PF + "noAvatar.jpg"
                 }
                 alt=""
                 className={classes.profileUserImg}

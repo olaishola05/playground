@@ -79,7 +79,7 @@ function RightBar({ users }) {
           <div className={classes.rigthbarFollowings}>
             <div className={classes.rightbarFollowing}>
               <img
-                src={PF + "img/smile.jpeg"}
+                src={PF + "smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -90,7 +90,7 @@ function RightBar({ users }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src={PF + "img/smile.jpeg"}
+                src={PF + "smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -101,7 +101,7 @@ function RightBar({ users }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src={PF + "img/smile.jpeg"}
+                src={PF + "swag.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -112,7 +112,7 @@ function RightBar({ users }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src={PF + "img/smile.jpeg"}
+                src={PF + "smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -123,7 +123,7 @@ function RightBar({ users }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src={PF + "img/smile.jpeg"}
+                src={PF + "smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />
@@ -134,7 +134,7 @@ function RightBar({ users }) {
 
             <div className={classes.rightbarFollowing}>
               <img
-                src={PF + "img/smile.jpeg"}
+                src={PF + "smile.jpeg"}
                 alt=""
                 className={classes.rightbarFollwingImg}
               />

@@ -1,58 +1,58 @@
 export const Users = [
   {
     id: 1,
-    profilePicture: "img/gee.jpeg",
+    profilePicture: "gee.jpeg",
     username: "Ola Ishola",
   },
   {
     id: 2,
-    profilePicture: "img/ayo.jpeg",
+    profilePicture: "ayo.jpeg",
     username: "Ayo Aderibigbe",
   },
   {
     id: 3,
-    profilePicture: "img/lord.jpeg",
+    profilePicture: "lord.jpeg",
     username: "Lord Luggard",
   },
   {
     id: 4,
-    profilePicture: "img/mrcool.jpeg",
+    profilePicture: "mrcool.jpeg",
     username: "Jack Dorsey",
   },
   {
     id: 5,
-    profilePicture: "img/hoody.jpeg",
+    profilePicture: "hoody.jpeg",
     username: "Kate Winterfell",
   },
   {
     id: 6,
-    profilePicture: "img/swag.jpeg",
+    profilePicture: "swag.jpeg",
     username: "Tyrone Kelly",
   },
   {
     id: 7,
-    profilePicture: "img/beauty.jpeg",
+    profilePicture: "beauty.jpeg",
     username: "Danny Bennett",
   },
   {
     id: 8,
-    profilePicture: "img/focus.jpeg",
+    profilePicture: "focus.jpeg",
     username: "Godwin Afolabi",
   },
   {
     id: 9,
-    profilePicture: "img/mists.jpeg",
+    profilePicture: "mists.jpeg",
     username: "Fola Mekiota",
   },
   {
     id: 10,
-    profilePicture: "img/smile.jpeg",
+    profilePicture: "smile.jpeg",
     username: "Sara Antweps",
   },
 
   {
     id: 11,
-    profilePicture: "img/hat.jpeg",
+    profilePicture: "hat.jpeg",
     username: "Jimmy Handler",
   },
 ];
@@ -61,7 +61,7 @@ export const Posts = [
   {
     id: 1,
     desc: "Late Night coding with the Memphis group.",
-    photo: "img/night.jpeg",
+    photo: "night.jpeg",
     date: "5 mins ago",
     userId: 1,
     like: 32,
@@ -69,7 +69,7 @@ export const Posts = [
   },
   {
     id: 2,
-    photo: "img/mobile.jpeg",
+    photo: "mobile.jpeg",
     date: "15 mins ago",
     userId: 2,
     like: 2,
@@ -78,7 +78,7 @@ export const Posts = [
   {
     id: 3,
     desc: "Every moment is a fresh beginning.",
-    photo: "img/micon.jpeg",
+    photo: "micon.jpeg",
     date: "1 hour ago",
     userId: 3,
     like: 61,
@@ -86,7 +86,7 @@ export const Posts = [
   },
   {
     id: 4,
-    photo: "img/mists.jpeg",
+    photo: "mists.jpeg",
     date: "4 hours ago",
     userId: 4,
     like: 7,
@@ -94,7 +94,7 @@ export const Posts = [
   },
   {
     id: 5,
-    photo: "img/lord.jpeg",
+    photo: "lord.jpeg",
     date: "5 hours ago",
     userId: 5,
     like: 23,
@@ -103,7 +103,7 @@ export const Posts = [
   {
     id: 6,
     desc: "Just kopped this bad boy",
-    photo: "img/maccy.jpeg",
+    photo: "maccy.jpeg",
     date: "1 day ago",
     userId: 6,
     like: 44,
@@ -112,7 +112,7 @@ export const Posts = [
   {
     id: 7,
     desc: "Never regret anything that made you smile.",
-    photo: "img/smile.jpeg",
+    photo: "smile.jpeg",
     date: "2 days ago",
     userId: 7,
     like: 52,
@@ -120,7 +120,7 @@ export const Posts = [
   },
   {
     id: 8,
-    photo: "img/setup.jpeg",
+    photo: "setup.jpeg",
     date: "3 days ago",
     userId: 8,
     like: 15,
@@ -129,7 +129,7 @@ export const Posts = [
   {
     id: 9,
     desc: "Change the world by being yourself.",
-    photo: "img/solo.jpeg",
+    photo: "solo.jpeg",
     date: "5 days ago",
     userId: 9,
     like: 11,
@@ -138,7 +138,7 @@ export const Posts = [
   {
     id: 10,
     desc: "Hacking the web with a stroke of code daily!!",
-    photo: "img/hacker.jpeg",
+    photo: "hacker.jpeg",
     date: "1 week ago",
     userId: 10,
     like: 104,
@@ -148,7 +148,7 @@ export const Posts = [
   {
     id: 11,
     desc: "Taking notes and writing psuedo code helps you to be a better dev!!",
-    photo: "img/note.jpeg",
+    photo: "note.jpeg",
     date: "1 week ago",
     userId: 10,
     like: 104,

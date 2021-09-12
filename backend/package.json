@@ -20,14 +20,14 @@
   },
   "homepage": "https://github.com/netman5/socialapp#readme",
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "mongoose": "^5.13.8",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.12"
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.12",
+    "path": "^0.12.7"
   }
 }

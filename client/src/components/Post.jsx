@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useStyles from "./ComponentsStyle";
 import { MoreVert } from "@material-ui/icons";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
 function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
-  // const { user } = useContext(AuthContext);
+  const { user: currUser } = useContext(AuthContext);
 
-  const likeHandler = () => {
+  useEffect(() => {
+    setIsLiked(post.likes.includes(currUser._id));
+  }, [currUser._id, post.likes]);
+
+  const likeHandler = async () => {
+    // setLike(isLiked ? like - 1 : like + 1);
+    // setIsLiked(!isLiked);
+    try {
+      await axios.put(`posts/${post._id}/like`, { userId: currUser._id });
+    } catch (err) {
+      console.log(err);
+    }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
@@ -39,7 +50,7 @@ function Post({ post }) {
                   src={
                     user.profilePicture
                       ? PF + user.profilePicture
-                      : PF + "img/noAvatar.jpg"
+                      : PF + "noAvatar.jpg"
                   }
                   alt=""
                   className={classes.userImg}
@@ -55,7 +66,7 @@ function Post({ post }) {
           <div className={classes.postCenter}>
             <span className={classes.postText}>{post?.desc}</span>
             <img
-              src={post.img && post.img}
+              src={post.img ? PF + post.img : null}
               alt=""
               className={classes.postImg}
             />
@@ -64,13 +75,13 @@ function Post({ post }) {
           <div className={classes.postBottom}>
             <div className={classes.postLike}>
               <img
-                src={`${PF}img/heart.png`}
+                src={`${PF}heart.png`}
                 alt=""
                 className={classes.postLikeIcons}
                 onClick={likeHandler}
               />
               <img
-                src={`${PF}img/like.png`}
+                src={`${PF}like.png`}
                 alt=""
                 className={classes.postLikeIcons}
                 onClick={likeHandler}

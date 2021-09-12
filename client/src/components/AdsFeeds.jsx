@@ -9,7 +9,7 @@ function AdsFeeds() {
       <div className={classes.info}>
         <span>Some blog feeds about coding and jobs</span>
 
-        <img src={PF + "img/ads.jpeg"} alt="" className={classes.rightbarAd} />
+        <img src={PF + "events.jpeg"} alt="" className={classes.rightbarAd} />
       </div>
     </>
   );
