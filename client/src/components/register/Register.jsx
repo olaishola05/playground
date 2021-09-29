@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import useStyles from "../ComponentsStyle";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 function Register() {
   const username = useRef();
@@ -78,9 +79,11 @@ function Register() {
               Sign Up
             </button>
 
-            <button className={classes.loginRegistration}>
-              Login into Account
-            </button>
+            <Link to="/login" style={{ alignSelf: "center" }}>
+              <button className={classes.loginRegistration}>
+                Login into Account
+              </button>
+            </Link>
           </form>
         </div>
       </div>

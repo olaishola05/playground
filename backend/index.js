@@ -19,7 +19,9 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
+
 app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 // Middleware
 app.use(express.json());
 app.use(helmet());
@@ -27,16 +29,17 @@ app.use(morgan("common"));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/images");
+    cb(null, "public/images");
   },
   filename: (req, file, cb) => {
+    // cb(null, file.fieldname + "-" + Date.now());
     cb(null, req.body.name);
   },
 });
 
-const upload = multer({ storage });
+const upload = multer({ storage: storage });
 
-app.post("/api/upload", upload.single("myfile"), (req, res) => {
+app.post("/api/upload", upload.single("postImage"), (req, res) => {
   try {
     // res.send(req.file);
     return res.status(200).json("File uploaded successfully");

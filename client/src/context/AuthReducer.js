@@ -26,4 +26,16 @@ const AuthReducer = (state, action) => {
   }
 };
 
+// const postReducer = (state, action) => {
+//   switch (action.type) {
+//     case "CREATE_POST":
+//       return {
+//         post: action.payload,
+//       };
+
+//     default:
+//       return state;
+//   }
+// };
+
 export default AuthReducer;

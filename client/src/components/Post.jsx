@@ -12,6 +12,8 @@ function Post({ post }) {
   const [user, setUser] = useState({});
   const { user: currUser } = useContext(AuthContext);
 
+  // console.log(post);
+
   useEffect(() => {
     setIsLiked(post.likes.includes(currUser._id));
   }, [currUser._id, post.likes]);

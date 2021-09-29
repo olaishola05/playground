@@ -1,14 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useStyles from "./ComponentsStyle";
 import { Users } from "../utils/mockData";
 import OnlineFriends from "./OnlineFriends";
 import AdsFeeds from "./AdsFeeds";
+import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 function RightBar({ users }) {
   const classes = useStyles();
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { user } = useContext(AuthContext);
+  const [friends, setFriends] = useState([]);
+
+  useEffect(() => {
+    const getFriends = async () => {
+      try {
+        const friendList = await axios.get("/users/friends/" + user._id);
+        setFriends(friendList.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getFriends();
+  }, [user._id]);
 
   // online friends with ads
   const HomeRightBar = () => {
@@ -77,71 +92,27 @@ function RightBar({ users }) {
         <div>
           <h4 className={classes.stackTitle}>User Friends</h4>
           <div className={classes.rigthbarFollowings}>
-            <div className={classes.rightbarFollowing}>
-              <img
-                src={PF + "smile.jpeg"}
-                alt=""
-                className={classes.rightbarFollwingImg}
-              />
-              <span className={classes.rightbarfollowingName}>
-                Jeremy Clarkes
-              </span>
-            </div>
-
-            <div className={classes.rightbarFollowing}>
-              <img
-                src={PF + "smile.jpeg"}
-                alt=""
-                className={classes.rightbarFollwingImg}
-              />
-              <span className={classes.rightbarfollowingName}>
-                Jeremy Clarkes
-              </span>
-            </div>
-
-            <div className={classes.rightbarFollowing}>
-              <img
-                src={PF + "swag.jpeg"}
-                alt=""
-                className={classes.rightbarFollwingImg}
-              />
-              <span className={classes.rightbarfollowingName}>
-                Jerry Clarkes
-              </span>
-            </div>
-
-            <div className={classes.rightbarFollowing}>
-              <img
-                src={PF + "smile.jpeg"}
-                alt=""
-                className={classes.rightbarFollwingImg}
-              />
-              <span className={classes.rightbarfollowingName}>
-                Jeremy Clarkes
-              </span>
-            </div>
-
-            <div className={classes.rightbarFollowing}>
-              <img
-                src={PF + "smile.jpeg"}
-                alt=""
-                className={classes.rightbarFollwingImg}
-              />
-              <span className={classes.rightbarfollowingName}>
-                Jeremy Clarkes
-              </span>
-            </div>
-
-            <div className={classes.rightbarFollowing}>
-              <img
-                src={PF + "smile.jpeg"}
-                alt=""
-                className={classes.rightbarFollwingImg}
-              />
-              <span className={classes.rightbarfollowingName}>
-                Jeremy Clarkes
-              </span>
-            </div>
+            {friends.map((friend) => (
+              <Link
+                to={"/profile/" + friend.username}
+                style={{ textDecoration: "none" }}
+              >
+                <div className={classes.rightbarFollowing} key={friend.id}>
+                  <img
+                    src={
+                      friend.profilePicture
+                        ? PF + friend.profilePicture
+                        : PF + "noAvatar.jpg"
+                    }
+                    alt=""
+                    className={classes.rightbarFollwingImg}
+                  />
+                  <span className={classes.rightbarfollowingName}>
+                    {friend.username}
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </>

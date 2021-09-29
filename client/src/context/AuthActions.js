@@ -11,3 +11,12 @@ export const LoginFailure = (error) => ({
   type: "LOGIN_FAILURE",
   payload: error,
 });
+
+// export const CreatePost = (post) => ({
+//   type: "CREATE_POST",
+//   payload: post,
+// });
+// export const PostError = (error) => ({
+//   type: "POST_ERROR",
+//   payload: error,
+// });

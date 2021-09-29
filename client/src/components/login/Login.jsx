@@ -3,6 +3,7 @@ import useStyles from "../ComponentsStyle";
 import { loginCall } from "../../ApiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { Link } from "react-router-dom";
 
 function Login() {
   const classes = useStyles();
@@ -59,9 +60,11 @@ function Login() {
             </button>
             <span className={classes.loginForgot}>Forgot Password?</span>
 
-            <button className={classes.loginRegistration}>
-              Create a New Account
-            </button>
+            <Link to="/register" style={{ alignSelf: "center" }}>
+              <button className={classes.loginRegistration}>
+                Create a New Account
+              </button>
+            </Link>
           </form>
         </div>
       </div>
